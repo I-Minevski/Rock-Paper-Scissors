@@ -1,10 +1,12 @@
 import random
+import sys
+from colorama import Fore, Back, Style
 rock="Rock"
 paper="Paper"
 scissors="Scissors"
 points_comp=points_player=0
 while True:
-    player_move=input("Choose [r]ock, [p]aper or [s]cissors: ")
+    player_move=input(Fore.GREEN + "Choose [r]ock, [p]aper or [s]cissors: ")
     if player_move=="stop":
         break
     if player_move=="r":
@@ -14,10 +16,10 @@ while True:
     elif player_move=="s":
         player_move=scissors
     elif player_move=="score":
-        print(f"You {points_player} : {points_comp} Computer")
+        print(Fore.WHITE + f"You {points_player} : {points_comp} Computer")
         continue
     else:
-        print("Invalid input. Try again. ")
+        print(Fore.RED + "Invalid input. Try again. ")
         continue
     computer_random_choice=random.randint(1, 3)
     computer_move=""
@@ -32,21 +34,21 @@ while True:
             (player_move==scissors and computer_move==paper) or \
                 (player_move==paper and computer_move==rock):
                 points_player+=1
-                print("You win!")
-                print("Type [stop] to quit.")
-                print("Type [score] to see the score.")
+                print(Fore.BLUE + "You win!")
+                print(Fore.WHITE + "Type [stop] to quit.")
+                print(Fore.WHITE + "Type [score] to see the score.")
     elif player_move==computer_move:
-        print("Draw!")
+        print(Fore.YELLOW + "Draw!")
     else:
         points_comp+=1
-        print("You lose!")
-        print("Type [stop] to quit.")
-        print("Type [score] to see the score.")
-print("Total score:")
+        print(Fore.RED + "You lose!")
+        print(Fore.WHITE + "Type [stop] to quit.")
+        print(Fore.WHITE + "Type [score] to see the score.")
+print(Fore.GREEN + "Total score:")
 print(f"You {points_player} : {points_comp} Computer")
 if points_player>points_comp:
-    print("You are the champion!")
+    print(Fore.BLUE + "You are the champion!")
 elif points_player<points_comp:
-    print("The Computer has defeated you!")
+    print(Fore.RED + "The Computer has defeated you!")
 else:
-    print("It's a Draw!")
+    print(Fore.YELLOW + "It's a Draw!")
