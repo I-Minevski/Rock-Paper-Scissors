@@ -33,15 +33,15 @@ while True:
                 (player_move==paper and computer_move==rock):
                 points_player+=1
                 print("You win!")
-                print("Type \"stop\" to quit.")
-                print("Type \"score\" to see the score.")
+                print("Type [stop] to quit.")
+                print("Type [score] to see the score.")
     elif player_move==computer_move:
         print("Draw!")
     else:
         points_comp+=1
         print("You lose!")
-        print("Type \"stop\" to quit.")
-        print("Type \"score\" to see the score.")
+        print("Type [stop] to quit.")
+        print("Type [score] to see the score.")
 print("Total score:")
 print(f"You {points_player} : {points_comp} Computer")
 if points_player>points_comp:
